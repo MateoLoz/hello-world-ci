@@ -1,0 +1,21 @@
+name: Hello World CI
+
+on:
+  push:
+    branches: [ main ]  # Se ejecuta al hacer push a la rama main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clonar repositorio
+      uses: actions/checkout@v3
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'  # Puedes usar otra versión si quieres
+
+    - name: Ejecutar script de Hello World
+      run: python hello.py
